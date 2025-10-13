@@ -5,4 +5,8 @@ export default {
     devices: "设备列表",
     language: "语言",
   },
+  menu: {
+    dashboard: "仪表盘",
+    devices: "设备管理",
+  },
 };

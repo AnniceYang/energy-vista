@@ -5,4 +5,8 @@ export default {
     devices: "Device List",
     language: "Language",
   },
+  menu: {
+    dashboard: "Dashboard",
+    devices: "Devices",
+  },
 };
