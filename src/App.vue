@@ -1,34 +1,53 @@
 <template>
-  <div id="app">
-    <AppNavbar />
-    <div class="main">
+  <el-container class="app-layout">
+    <!-- 顶部 Header -->
+    <el-header height="60px">
+      <AppNavbar />
+    </el-header>
+
+    <!-- 左侧 + 右侧 -->
+    <el-container>
       <AppSidebar />
-      <router-view class="content" />
-    </div>
-  </div>
+
+      <el-main class="app-main">
+        <router-view />
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
 
 <script>
-import AppNavbar from "@components/Navbar.vue";
-import AppSidebar from "@components/Sidebar.vue";
+import AppNavbar from "@/components/Navbar.vue";
+import AppSidebar from "@/components/Sidebar.vue";
 
 export default {
-  name: "App",
+  name: "AppRoot",
   components: { AppNavbar, AppSidebar },
 };
 </script>
 
 <style>
-body {
+html,
+body,
+#app {
+  height: 100%;
   margin: 0;
-  font-family: "Segoe UI", sans-serif;
 }
-.main {
-  display: flex;
+
+/* 主容器背景 */
+.app-layout {
+  background: var(--bg-light);
 }
-.content {
-  flex: 1;
+
+/* 内容区域 */
+.app-main {
   padding: 20px;
-  background: #fff;
+  background: var(--card-bg);
+  overflow-y: auto;
+}
+
+.el-header {
+  padding: 0 !important;
+  height: 60px !important;
 }
 </style>

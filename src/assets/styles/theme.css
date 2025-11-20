@@ -1,0 +1,43 @@
+/* =======================
+   🌙 默认深色主题（主风格）
+   ======================= */
+:root {
+  /* 主色（蓝绿色） */
+  --primary: #3ec7a3;
+  --primary-hover: #31b38f;
+
+  /* 文本色 */
+  --text: #e6eef5;
+  --text-light: #cfd8e3;
+
+  /* 背景色 */
+  --bg-main: #2d3e38; /* Navbar & Sidebar */
+  --bg-sidebar: #2d3e38;
+  --bg-content: #1f2a24; /* Main 内容背景（更深更稳） */
+
+  --bg-hover: rgba(255, 255, 255, 0.06);
+  --bg-active: rgba(62, 199, 163, 0.28); /* 选中更明显 */
+
+  /* 边框弱线 */
+  --border-light: #1b2420;
+}
+
+/* =======================
+   ☀️ 浅色主题（可选）
+   ======================= */
+:root[data-theme="light"] {
+  --primary: #3ec7a3;
+  --primary-hover: #31b38f;
+
+  --text: #2c3e50;
+  --text-light: #6b7b8c;
+
+  --bg-main: #e8f3ee; /* Navbar / Sidebar 的淡绿灰背景 */
+  --bg-sidebar: #e8f3ee;
+  --bg-content: #f6faf8;
+
+  --bg-hover: rgba(0, 0, 0, 0.05);
+  --bg-active: rgba(62, 199, 163, 0.16);
+
+  --border-light: #cfdad5;
+}

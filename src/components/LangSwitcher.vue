@@ -1,30 +1,31 @@
 <template>
-  <el-slect
-    v-model="lang"
-    @change="changeLang"
-    size="mini"
-    class="lang-switcher"
-  >
+  <el-select v-model="lang" size="small" @change="onChange" class="lang-select">
     <el-option label="中文" value="zh"></el-option>
     <el-option label="English" value="en"></el-option>
-  </el-slect>
+  </el-select>
 </template>
 
 <script>
 export default {
+  name: "LangSwitcher",
   data() {
-    return { lang: this.$i18n.locale };
+    return { lang: this.$i18n.locale || "en" };
   },
   methods: {
-    changeLang(val) {
+    onChange(val) {
       this.$i18n.locale = val;
+      localStorage.setItem("lang", val);
     },
+  },
+  mounted() {
+    const saved = localStorage.getItem("lang");
+    if (saved) this.lang = saved;
   },
 };
 </script>
 
 <style scoped>
-.lang-switcher {
-  min-width: 100px;
+.lang-select {
+  min-width: 110px;
 }
 </style>

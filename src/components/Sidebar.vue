@@ -1,42 +1,56 @@
 <template>
-  <div class="sidebar">
-    <ul>
-      <li>
-        <router-link to="/">🏠 {{ $t("menu.dashboard") }}</router-link>
-      </li>
-      <li>
-        <router-link to="/devices">⚙️ {{ $t("menu.devices") }}</router-link>
-      </li>
-    </ul>
-  </div>
-</template>
+  <el-aside width="220px" class="sidebar">
+    <el-menu
+      :default-active="$route.path"
+      router
+      background-color="transparent"
+      text-color="var(--text-light)"
+      active-text-color="var(--primary)"
+      class="menu"
+    >
+      <el-menu-item index="/dashboard">
+        <i class="ri-dashboard-line"></i>
+        <span>{{ $t("menu.dashboard") }}</span>
+      </el-menu-item>
 
-<script>
-export default {
-  name: "AppSidebar",
-};
-</script>
+      <el-menu-item index="/devices">
+        <i class="ri-cpu-line"></i>
+        <span>{{ $t("menu.devices") }}</span>
+      </el-menu-item>
+    </el-menu>
+  </el-aside>
+</template>
 
 <style scoped>
 .sidebar {
-  width: 200px;
-  background: #f4f6f8;
-  height: 100vh;
-  padding: 20px;
+  background: var(--bg-sidebar);
+  color: var(--text);
+  height: calc(100vh - 60px);
+  border-right: 1px solid var(--border-light);
+  padding: 12px 10px;
 }
-.sidebar ul {
-  list-style: none;
-  padding: 0;
+
+.menu {
+  border-right: none;
 }
-.sidebar li {
-  margin: 12px 0;
+
+/* icon 规范 */
+.el-menu-item i {
+  margin-right: 10px;
+  font-size: 18px;
 }
-.sidebar a {
-  color: #333;
-  text-decoration: none;
+
+/* hover 效果 */
+.el-menu-item:hover {
+  background: var(--bg-hover) !important;
+  border-radius: 6px;
 }
-.sidebar a.router-link-exact-active {
-  font-weight: bold;
-  color: #42b983;
+
+/* ✔ 选中高亮（字体更亮 + 背景明显） */
+.el-menu-item.is-active {
+  background: var(--bg-active) !important;
+  border-radius: 6px !important;
+  color: var(--primary) !important;
+  font-weight: 600 !important;
 }
 </style>
